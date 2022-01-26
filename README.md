@@ -3,7 +3,6 @@
 </p>
 <div align="center">
 
-# EatKano
 
 🛠️自定义吃掉XXX游戏🛠️
 
