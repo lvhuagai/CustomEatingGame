@@ -3,21 +3,59 @@
     <head>
         <meta charset="utf-8">
         <title>自定义吃掉XXX游戏</title>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?43b65566b6c52b7d6e002f83ffbeb8d6";
+				var s = document.getElementsByTagName("script")[0]; 
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script src="./static/base64.js"></script>
     </head>
     <body>
         <h1 style="text-align:center">自定义吃掉XXX游戏</h1>
-        <form action="main.html">
-            网页名: <input type="text" name="websitename"><br/>
-            主标题: <input type="text" name="WelcomeText1"><br/>
-            人物名: <input type="text" name="Character1"><br/>
-            时间结束后文本: <input type="text" name="TimeupText1"><br/>
-            分数小于30时文字: <input type="text" name="ScoreComment29"><br/>
-            分数30-50时文字: <input type="text" name="ScoreComment49"><br/>
-            分数50-100时文字: <input type="text" name="ScoreComment99"><br/>
-            分数100-160时文字: <input type="text" name="ScoreComment159"><br/>
-			分数160-200时文字: <input type="text" name="ScoreComment199"><br/>
-            分数大于200时文字: <input type="text" name="ScoreCommentMore"><br/>
-            <input type="submit" value="提交">
+		<h3 style="text-align:center">原作：<a href="https://github.com/arcxingye/EatKano">吃掉小鹿乃</a> by 星夜</h3>
+        <form action="main.html" onsubmit="return pageencode()">
+            网页名: <input type="text" name="websitename" id="websitename" value="吃掉小鹿乃"><br/>
+            主标题: <input type="text" name="WelcomeText1" id="WelcomeText1" value="新概念音游"><br/>
+            人物名: <input type="text" name="Character1" id="Character1" value="小鹿乃"><br/>
+            时间结束后文本: <input type="text" name="TimeupText1" id="TimeupText1" value="时间到了"><br/>
+            分数小于30时文字: <input type="text" name="ScoreComment29" id="ScoreComment29" value="多练练"><br/>
+            分数30-50时文字: <input type="text" name="ScoreComment49" id="ScoreComment49" value="再加油一下"><br/>
+            分数50-100时文字: <input type="text" name="ScoreComment99" id="ScoreComment99" value="继续努力！"><br/>
+            分数100-160时文字: <input type="text" name="ScoreComment159" id="ScoreComment159" value="厉害啊！"><br/>
+			分数160-200时文字: <input type="text" name="ScoreComment199" id="ScoreComment199" value="大大太强了"><br/>
+            分数大于200时文字: <input type="text" name="ScoreCommentMore" id="ScoreCommentMore" value="您还是人吗"><br/>
+			点击前图片: <input type="text" name="ClickBefore" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
+            点击后图片: <input type="text" name="AfterClicking" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
+            <p>请在文本框中输入指定图片URL，访问<a href="https://imgtu.com/">图床</a>可上传本地图片，获取URL。<br />
+			注意：图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）</p><br/>
+            <input type="submit" value="开始自定义游戏">
         </form>
+		<script type="text/javascript" charset="utf-8">
+			function conencode(_ele) {
+				var fuckit_ele = document.getElementById(_ele);  //fk it ok? im done with this bs
+				var fuckit_con = fuckit_ele.value;
+				fuckit_ele.value = Base64.encode(fuckit_con);
+			}
+			
+			function pageencode() {
+				conencode("websitename");
+				conencode("WelcomeText1");
+				conencode("Character1");
+				conencode("TimeupText1");
+				conencode("ScoreComment29");
+				conencode("ScoreComment49");
+				conencode("ScoreComment99");
+				conencode("ScoreComment159");
+				conencode("ScoreComment199");
+				conencode("ScoreCommentMore");
+				conencode("ClickBefore");
+				conencode("AfterClicking");
+				return true;
+			}
+		</script>
     </body>
 </html>

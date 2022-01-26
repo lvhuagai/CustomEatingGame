@@ -10,7 +10,8 @@ var body, blockSize, GameLayer = [],
     GameLayerBG, touchArea = [],
     GameTimeLayer;
 var transform, transitionDuration;
-var TimeupText1, WelcomeText1;
+var TimeupText1
+var WelcomeText1;
 var ScoreComment29;
 var ScoreComment49;
 var ScoreComment99;
@@ -18,16 +19,36 @@ var ScoreComment159;
 var ScoreComment199;
 var ScoreCommentMore;
 var Character1;
+var ClickBefore;
+var AfterClicking;
+const clickBeforeStyle = document.createElement('style');
+const clickAfterStyle = document.createElement('style');
+document.head.append(clickBeforeStyle);
+document.head.append(clickAfterStyle);
 
 function getQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
 	var r = window.location.search.substr(1).match(reg);
-	if (r != null) return decodeURI(r[2]); return null;
+	if (r != null) {
+		return Base64.decode(unescape(r[2]));
+	} else {
+		return null;
+	}
+}
+
+function getQueryStringImg(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) {
+		return Base64.decode(unescape(r[2]));
+    } else {
+        return null;
+    }
 }
 
 function init() {
     showWelcomeLayer();
-	TimeupText1 = escape(getQueryString("TimeupText1"));
+	TimeupText1 = getQueryString("TimeupText1");
 	ScoreComment29 = getQueryString("ScoreComment29");
 	ScoreComment49 = getQueryString("ScoreComment49");
 	ScoreComment99 = getQueryString("ScoreComment99");
@@ -36,6 +57,8 @@ function init() {
 	ScoreCommentMore = getQueryString("ScoreCommentMore");
 	WelcomeText1 = getQueryString("WelcomeText1");
 	Character1 = getQueryString("Character1");
+	ClickBefore = getQueryStringImg("ClickBefore");
+    AfterClicking = getQueryStringImg("AfterClicking");
 	document.title = getQueryString("websitename");
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
@@ -65,6 +88,16 @@ function init() {
     window.addEventListener('resize', refreshSize, false);
     var btn = document.getElementById('ready-btn');
     btn.className = 'btn btn-primary btn-lg';
+	clickBeforeStyle.innerHTML = `
+        .t1, .t2, .t3, .t4, .t5 {
+            background-size: auto 100%;
+            background-image: url(${ClickBefore});
+        }`;
+    clickAfterStyle.innerHTML = `
+        .tt1, .tt2, .tt3, .tt4, .tt5 {
+          background-size: auto 86%;
+          background-image: url(${AfterClicking});
+    }`;
 	document.getElementById("welcometext1").innerHTML = WelcomeText1;
 	document.getElementById("title2").innerHTML = "从最底下"+Character1+"开始";
     btn.onclick = function () {
