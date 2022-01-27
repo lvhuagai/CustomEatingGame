@@ -15,7 +15,7 @@
 		<script src="./static/base64.js"></script>
 		<link href="./static/index.css" rel="stylesheet" type="text/css">
     </head>
-    <body style="background-image: url(./static/image/bg.jpg); background-repeat: no-repeat; background-attachment: scroll; background-position:center; background-size: cover;">
+    <body>
         <h1 style="text-align:center">自定义吃掉XXX游戏</h1>
 		<h3 style="text-align:center">By <a href="https://github.com/lvhuagai">lvhuagai</a> & <a href="https://github.com/Dacros4">Dacros4</a><br />
 		原作: <a href="https://github.com/arcxingye/EatKano">吃掉小鹿乃</a> by 星夜</h3>
@@ -33,13 +33,35 @@
 			点击前图片: <input type="text" name="ClickBefore" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
             点击后图片: <input type="text" name="AfterClicking" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
             <p>请在文本框中输入指定图片URL，访问<a href="https://imgtu.com/">图床</a>可上传本地图片，获取URL。<br />
-			注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）</p><br/>
+			注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）<br/>
+			图床使用有问题？图片看不见？点<a href="tut.html">这里</a>来查看教程！</p>
             <input type="submit" value="开始自定义游戏" class="upload">
 			<p style="text-align:center"><a href="https://github.com/lvhuagai/CustomEatingGame">在Github上访问此项目</a><br />
 			如果你喜欢这个项目请务必分享一下，麻烦了!<br />
 			网址是 <a href="https://lvhuagai.github.io/CustomEatingGame">https://lvhuagai.github.io/CustomEatingGame</a></p>
         </form>
 		<script type="text/javascript" charset="utf-8">
+			window.setInterval(bodycolor, 40);
+			var trg = document.body;
+			var i = 200;
+			var stLock = 0;
+			function colorChange(_r, _g, _b) {
+				trg.style.backgroundColor = "rgb(" + _r + ", " + _g + ", " + _b + ")";
+			}
+			
+			function bodycolor() {
+				if (i <= 256 & stLock == 0) {
+					i++;
+					colorChange(225, i, 255);
+				}
+				if (i == 256 & stLock == 0) stLock = 1;
+				if (i > 200 & stLock == 1) {
+					i--;
+					colorChange(225, i, 255);
+				}
+				if (i == 201 & stLock == 1) stLock = 0;
+			}
+			
 			function conencode(_ele) {
 				var fuckit_ele = document.getElementById(_ele);  //fk it ok? im done with this bs
 				var fuckit_con = fuckit_ele.value;
