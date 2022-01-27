@@ -183,7 +183,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    if(GameTime==-1){
+    if(GameTime==null){
 	  _gameTimeNum = 20;
     }else{
 	  _gameTimeNum = GameTime;
