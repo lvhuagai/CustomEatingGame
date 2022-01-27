@@ -60,10 +60,10 @@ function init() {
 	Character1 = getQueryString("Character1");
 	ClickBefore = getQueryStringURL("ClickBefore");
     AfterClicking = getQueryStringURL("AfterClicking");
-	if(getQueryString("GameTime")==null){
-		GameTime=20;
-	}else{
+	if(getQueryString("GameTime")){
 		GameTime=getQueryString("GameTime");
+	}else{
+		GameTime=20;
 	}
 	document.title = getQueryString("websitename");
     body = document.getElementById('gameBody') || document.body;
@@ -187,7 +187,12 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = GameTime;
+    if(GameTime){
+	  _gameTimeNum = GameTime;  
+    }else{
+	  _gameTimeNum = 20;  
+    }
+    
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);
