@@ -21,7 +21,7 @@ var ScoreCommentMore;
 var Character1;
 var ClickBefore;
 var AfterClicking;
-var GameTime;
+var GameTime=-1;
 const clickBeforeStyle = document.createElement('style');
 const clickAfterStyle = document.createElement('style');
 document.head.append(clickBeforeStyle);
@@ -60,11 +60,7 @@ function init() {
 	Character1 = getQueryString("Character1");
 	ClickBefore = getQueryStringURL("ClickBefore");
     AfterClicking = getQueryStringURL("AfterClicking");
-	if(getQueryString("GameTime")){
-		GameTime=getQueryString("GameTime");
-	}else{
-		GameTime=20;
-	}
+	GameTime=getQueryString("GameTime");
 	document.title = getQueryString("websitename");
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
@@ -187,10 +183,10 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    if(GameTime){
-	  _gameTimeNum = GameTime;  
+    if(GameTime==-1){
+	  _gameTimeNum = 20;
     }else{
-	  _gameTimeNum = 20;  
+	  _gameTimeNum = GameTime;
     }
     
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
