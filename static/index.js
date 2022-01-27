@@ -60,7 +60,11 @@ function init() {
 	Character1 = getQueryString("Character1");
 	ClickBefore = getQueryStringURL("ClickBefore");
     AfterClicking = getQueryStringURL("AfterClicking");
-    GameTime = getQueryString("GameTime");
+	if(getQueryString("GameTime")==null){
+		GameTime=20;
+	}else{
+		GameTime=getQueryString("GameTime");
+	}
 	document.title = getQueryString("websitename");
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
