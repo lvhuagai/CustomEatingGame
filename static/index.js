@@ -60,7 +60,12 @@ function init() {
 	Character1 = getQueryString("Character1");
 	ClickBefore = getQueryStringURL("ClickBefore");
     AfterClicking = getQueryStringURL("AfterClicking");
-	GameTime=getQueryString("GameTime");
+	_Try_GameTime = getQueryString("GameTime");
+	if (_Try_GameTime == null){
+	  GameTime = 20;
+    } else {
+	  GameTime = _Try_GameTime;
+    }
 	document.title = getQueryString("websitename");
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
@@ -183,9 +188,9 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    if(GameTime==null){
+    if (GameTime == null){
 	  _gameTimeNum = 20;
-    }else{
+    } else {
 	  _gameTimeNum = GameTime;
     }
     

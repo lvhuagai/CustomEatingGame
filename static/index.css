@@ -45,3 +45,7 @@
   footer {
     height:50px;
   }
+  
+  .iinput {
+	  border: 1px solid black;
+  }
