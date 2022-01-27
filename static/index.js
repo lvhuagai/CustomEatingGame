@@ -21,6 +21,7 @@ var ScoreCommentMore;
 var Character1;
 var ClickBefore;
 var AfterClicking;
+var GameTime;
 const clickBeforeStyle = document.createElement('style');
 const clickAfterStyle = document.createElement('style');
 document.head.append(clickBeforeStyle);
@@ -36,7 +37,7 @@ function getQueryString(name) {
 	}
 }
 
-function getQueryStringImg(name) {
+function getQueryStringURL(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
     var r = window.location.search.substr(1).match(reg);
     if (r != null) {
@@ -57,8 +58,9 @@ function init() {
 	ScoreCommentMore = getQueryString("ScoreCommentMore");
 	WelcomeText1 = getQueryString("WelcomeText1");
 	Character1 = getQueryString("Character1");
-	ClickBefore = getQueryStringImg("ClickBefore");
-    AfterClicking = getQueryStringImg("AfterClicking");
+	ClickBefore = getQueryStringURL("ClickBefore");
+    AfterClicking = getQueryStringURL("AfterClicking");
+    GameTime = getQueryString("GameTime");
 	document.title = getQueryString("websitename");
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
@@ -158,7 +160,7 @@ var _gameBBList = [],
     _gameOver = false,
     _gameStart = false,
     _gameTime, _gameTimeNum, _gameScore;
-
+//Sound settings, I'll add this feature in next version :p
 function gameInit() {
     createjs.Sound.registerSound({
         src: "./static/music/err.mp3",
@@ -181,7 +183,7 @@ function gameRestart() {
     _gameScore = 0;
     _gameOver = false;
     _gameStart = false;
-    _gameTimeNum = 20;
+    _gameTimeNum = GameTime;
     GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     countBlockSize();
     refreshGameLayer(GameLayer[0]);

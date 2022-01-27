@@ -14,76 +14,90 @@
 		</script>
 		<script src="./static/base64.js"></script>
 		<link href="./static/index.css" rel="stylesheet" type="text/css">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+		<meta name="format-detection"content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<style type="text/css">*{margin:0;padding:0; border:0;}</style>
     </head>
     <body>
-        <h1 style="text-align:center">自定义吃掉XXX游戏</h1>
-		<h3 style="text-align:center">By <a href="https://github.com/lvhuagai">lvhuagai</a> & <a href="https://github.com/Dacros4">Dacros4</a><br />
-		原作: <a href="https://github.com/arcxingye/EatKano">吃掉小鹿乃</a> by 星夜</h3>
-        <form action="main.html" onsubmit="return pageencode()"style="text-align:center">
-            网页名: <input type="text" name="websitename" id="websitename" value="吃掉小鹿乃"><br/>
-            主标题: <input type="text" name="WelcomeText1" id="WelcomeText1" value="新概念音游"><br/>
-            人物名: <input type="text" name="Character1" id="Character1" value="小鹿乃"><br/>
-            时间结束后文本: <input type="text" name="TimeupText1" id="TimeupText1" value="时间到了"><br/>
-            分数小于30时文字: <input type="text" name="ScoreComment29" id="ScoreComment29" value="多练练"><br/>
-            分数30-50时文字: <input type="text" name="ScoreComment49" id="ScoreComment49" value="再加油一下"><br/>
-            分数50-100时文字: <input type="text" name="ScoreComment99" id="ScoreComment99" value="继续努力!"><br/>
-            分数100-160时文字: <input type="text" name="ScoreComment159" id="ScoreComment159" value="厉害啊!"><br/>
-			分数160-200时文字: <input type="text" name="ScoreComment199" id="ScoreComment199" value="大大太强了"><br/>
-            分数大于200时文字: <input type="text" name="ScoreCommentMore" id="ScoreCommentMore" value="您还是人吗"><br/>
-			点击前图片: <input type="text" name="ClickBefore" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
-            点击后图片: <input type="text" name="AfterClicking" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
-            <p>请在文本框中输入指定图片URL，访问<a href="https://imgtu.com/">图床</a>可上传本地图片，获取URL。<br />
-			注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）<br/>
-			图床使用有问题？图片看不见？点<a href="tut.html">这里</a>来查看教程！<br />
-			开始游戏后，将网页链接复制下来并分享给你的朋友，就可以将你的修改成果分享出去了 'w'</p>
-            <input type="submit" value="开始自定义游戏" class="upload">
-			<p style="text-align:center"><a href="https://github.com/lvhuagai/CustomEatingGame">在Github上访问此项目</a><br />
+		<div class="main">
+			<h1 style="text-align:center">自定义吃掉XXX游戏</h1>
+			<h3 style="text-align:center">By <a href="https://github.com/lvhuagai">lvhuagai</a> & <a href="https://github.com/Dacros4">Dacros4</a><br />
+			原作: <a href="https://github.com/arcxingye/EatKano">吃掉小鹿乃</a> by 星夜</h3>
+			<form action="main.html" onsubmit="return pageencode()"style="text-align:center">
+				网页名: <input type="text" name="websitename" id="websitename" value="吃掉小鹿乃"><br/>
+				主标题: <input type="text" name="WelcomeText1" id="WelcomeText1" value="新概念音游"><br/>
+				人物名: <input type="text" name="Character1" id="Character1" value="小鹿乃"><br/>
+				时间结束后文本: <input type="text" name="TimeupText1" id="TimeupText1" value="时间到了"><br/>
+				分数小于30时文字: <input type="text" name="ScoreComment29" id="ScoreComment29" value="多练练"><br/>
+				分数30-50时文字: <input type="text" name="ScoreComment49" id="ScoreComment49" value="再加油一下"><br/>
+				分数50-100时文字: <input type="text" name="ScoreComment99" id="ScoreComment99" value="继续努力!"><br/>
+				分数100-160时文字: <input type="text" name="ScoreComment159" id="ScoreComment159" value="厉害啊!"><br/>
+				分数160-200时文字: <input type="text" name="ScoreComment199" id="ScoreComment199" value="大大太强了"><br/>
+				分数大于200时文字: <input type="text" name="ScoreCommentMore" id="ScoreCommentMore" value="您还是人吗"><br/>
+				点击前图片: <input type="text" name="ClickBefore" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
+				点击后图片: <input type="text" name="AfterClicking" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
+				游戏时长(单位秒): <input type="text" name="GameTime" id="GameTime" value="20"><br/>
+				<p>请在文本框中输入指定图片URL，访问<a href="https://imgtu.com/">图床</a>可上传本地图片，获取URL。<br />
+				注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）<br/>
+				图床使用有问题？图片看不见？点<a href="tut.html">这里</a>来查看教程！<br />
+				开始游戏后，将网页链接复制下来并分享给你的朋友，就可以将你的修改成果分享出去了 'w'</p>
+				<input type="submit" value="开始自定义游戏" class="upload">
+				
+			</form>
+			<script type="text/javascript" charset="utf-8">
+				window.setInterval(bodycolor, 40);
+				var trg = document.body;
+				var i = 200;
+				var stLock = 0;
+				function colorChange(_r, _g, _b) {
+					trg.style.backgroundColor = "rgb(" + _r + ", " + _g + ", " + _b + ")";
+				}
+				
+				function bodycolor() {
+					if (i <= 256 & stLock == 0) {
+						i++;
+						colorChange(225, i, 255);
+					}
+					if (i == 256 & stLock == 0) stLock = 1;
+					if (i > 200 & stLock == 1) {
+						i--;
+						colorChange(225, i, 255);
+					}
+					if (i == 201 & stLock == 1) stLock = 0;
+				}
+				
+				function conencode(_ele) {
+					var fuckit_ele = document.getElementById(_ele);  //fk it ok? im done with this bs
+					var fuckit_con = fuckit_ele.value;               //lol
+					fuckit_ele.value = Base64.encode(fuckit_con);
+				}
+				
+				function pageencode() {
+					conencode("websitename");
+					conencode("WelcomeText1");
+					conencode("Character1");
+					conencode("TimeupText1");
+					conencode("ScoreComment29");
+					conencode("ScoreComment49");
+					conencode("ScoreComment99");
+					conencode("ScoreComment159");
+					conencode("ScoreComment199");
+					conencode("ScoreCommentMore");
+					conencode("ClickBefore");
+					conencode("AfterClicking");
+					conencode("GameTime");
+					return true;
+				}
+			</script>
+		</div>
+    </body>
+	<footer>
+		<p style="text-align:center"><a href="https://github.com/lvhuagai/CustomEatingGame"><img alt="GitHub Repo stars" style="text-align:center" src="https://img.shields.io/github/stars/lvhuagai/CustomEatingGame?label=Star%E6%9C%AC%E4%BB%93%E5%BA%93&logo=GitHub&style=plastic"></a><br />
 			如果你喜欢这个项目请务必分享一下，麻烦了!<br />
 			网址是 <a href="https://lvhuagai.github.io/CustomEatingGame">https://lvhuagai.github.io/CustomEatingGame</a></p>
-        </form>
-		<script type="text/javascript" charset="utf-8">
-			window.setInterval(bodycolor, 40);
-			var trg = document.body;
-			var i = 200;
-			var stLock = 0;
-			function colorChange(_r, _g, _b) {
-				trg.style.backgroundColor = "rgb(" + _r + ", " + _g + ", " + _b + ")";
-			}
-			
-			function bodycolor() {
-				if (i <= 256 & stLock == 0) {
-					i++;
-					colorChange(225, i, 255);
-				}
-				if (i == 256 & stLock == 0) stLock = 1;
-				if (i > 200 & stLock == 1) {
-					i--;
-					colorChange(225, i, 255);
-				}
-				if (i == 201 & stLock == 1) stLock = 0;
-			}
-			
-			function conencode(_ele) {
-				var fuckit_ele = document.getElementById(_ele);  //fk it ok? im done with this bs
-				var fuckit_con = fuckit_ele.value;
-				fuckit_ele.value = Base64.encode(fuckit_con);
-			}
-			
-			function pageencode() {
-				conencode("websitename");
-				conencode("WelcomeText1");
-				conencode("Character1");
-				conencode("TimeupText1");
-				conencode("ScoreComment29");
-				conencode("ScoreComment49");
-				conencode("ScoreComment99");
-				conencode("ScoreComment159");
-				conencode("ScoreComment199");
-				conencode("ScoreCommentMore");
-				conencode("ClickBefore");
-				conencode("AfterClicking");
-				return true;
-			}
-		</script>
-    </body>
+	</footer>
 </html>

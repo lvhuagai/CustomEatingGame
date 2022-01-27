@@ -34,3 +34,14 @@
 	  font-size: 1.28em;
 	  font-weight: normal;
   }
+
+  * {
+    margin:0;
+    padding:0;
+  }
+  .main {
+    min-height: calc(100vh - 80px);
+  }
+  footer {
+    height:50px;
+  }
