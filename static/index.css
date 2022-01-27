@@ -24,3 +24,13 @@
     background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
     text-decoration: none;
   }
+  
+  h1 {
+	  font-size: 2.4em;
+	  font-weight: normal;
+  }
+  
+  h3 {
+	  font-size: 1.28em;
+	  font-weight: normal;
+  }
