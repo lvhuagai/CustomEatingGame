@@ -49,24 +49,25 @@ function getQueryStringURL(name) {
 
 function init() {
     showWelcomeLayer();
-	TimeupText1 = getQueryString("TimeupText1");
-	ScoreComment29 = getQueryString("ScoreComment29");
-	ScoreComment49 = getQueryString("ScoreComment49");
-	ScoreComment99 = getQueryString("ScoreComment99");
-	ScoreComment159 = getQueryString("ScoreComment159");
-	ScoreComment199 = getQueryString("ScoreComment199");
-	ScoreCommentMore = getQueryString("ScoreCommentMore");
-	WelcomeText1 = getQueryString("WelcomeText1");
-	Character1 = getQueryString("Character1");
-	ClickBefore = getQueryStringURL("ClickBefore");
-    AfterClicking = getQueryStringURL("AfterClicking");
-	_Try_GameTime = getQueryString("GameTime");
-	if (_Try_GameTime == null){
+	TimeupText1 = getQueryString("tmut1"); //i prefer using 'tmut1' instead of 'tut1' for no reasons :p
+	ScoreComment29 = getQueryString("sc29");
+	ScoreComment49 = getQueryString("sc49");
+	ScoreComment99 = getQueryString("sc99");
+	ScoreComment159 = getQueryString("sc159");
+	ScoreComment199 = getQueryString("sc199");
+	ScoreCommentMore = getQueryString("scm");
+	WelcomeText1 = getQueryString("wt1");
+	Character1 = getQueryString("chr1");
+	ClickBefore = getQueryStringURL("cbi"); //here the 'i' stands for image
+    AfterClicking = getQueryStringURL("aci"); //the same 0A0
+	_Try_GameTime = getQueryString("gt");
+	if (_Try_GameTime == null) {  //try to fix the bug that the old links don't have the gametime data
 	  GameTime = 20;
     } else {
 	  GameTime = _Try_GameTime;
     }
-	document.title = getQueryString("websitename");
+	document.title = getQueryString("wsn");
+	
     body = document.getElementById('gameBody') || document.body;
     body.style.height = window.innerHeight + 'px';
     transform = typeof (body.style.webkitTransform) != 'undefined' ? 'webkitTransform' : (typeof (body.style.msTransform) !=
@@ -106,7 +107,8 @@ function init() {
           background-image: url(${AfterClicking});
     }`;
 	document.getElementById("welcometext1").innerHTML = WelcomeText1;
-	document.getElementById("title2").innerHTML = "从最底下"+Character1+"开始";
+	document.getElementById("title2").innerHTML = "从最底下" + Character1 + "开始";
+	alert("复制下面的链接把你的修改结果分享给好友！\n" + window.location.href);
     btn.onclick = function () {
         closeWelcomeLayer();
     }

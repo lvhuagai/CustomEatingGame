@@ -13,6 +13,7 @@
 			})();
 		</script>
 		<script src="./static/base64.js"></script>
+		<script src="./static/custompage.js" charset="utf-8"></script>
 		<link href="./static/index.css" rel="stylesheet" type="text/css">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -27,72 +28,35 @@
 			<h1 style="text-align:center">自定义吃掉XXX游戏</h1>
 			<h3 style="text-align:center">By <a href="https://github.com/lvhuagai">lvhuagai</a> & <a href="https://github.com/Dacros4">Dacros4</a><br />
 			原作: <a href="https://github.com/arcxingye/EatKano">吃掉小鹿乃</a> by 星夜</h3>
-			<form action="main.html" onsubmit="return pageencode()"style="text-align:center">
-				网页名: <input type="text" class="iinput" name="websitename" id="websitename" value="吃掉小鹿乃"><br/>
-				主标题: <input type="text" class="iinput" name="WelcomeText1" id="WelcomeText1" value="新概念音游"><br/>
-				人物名: <input type="text" class="iinput" name="Character1" id="Character1" value="小鹿乃"><br/>
-				时间结束后文本: <input type="text" class="iinput" name="TimeupText1" id="TimeupText1" value="时间到了"><br/>
-				分数小于30时文字: <input type="text" class="iinput" name="ScoreComment29" id="ScoreComment29" value="多练练"><br/>
-				分数30-50时文字: <input type="text" class="iinput" name="ScoreComment49" id="ScoreComment49" value="再加油一下"><br/>
-				分数50-100时文字: <input type="text" class="iinput" name="ScoreComment99" id="ScoreComment99" value="继续努力!"><br/>
-				分数100-160时文字: <input type="text" class="iinput" name="ScoreComment159" id="ScoreComment159" value="厉害啊!"><br/>
-				分数160-200时文字: <input type="text" class="iinput" name="ScoreComment199" id="ScoreComment199" value="大大太强了"><br/>
-				分数大于200时文字: <input type="text" class="iinput" name="ScoreCommentMore" id="ScoreCommentMore" value="您还是人吗"><br/>
-				点击前图片: <input type="text" class="iinput" name="ClickBefore" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
-				点击后图片: <input type="text" class="iinput" name="AfterClicking" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
-				游戏时长(单位秒): <input type="text" class="iinput" name="GameTime" id="GameTime" value="20"><br/>
+			<form action="main.html" onsubmit="return pageencode()" style="text-align:center">
+				<h4><a href="javascript:textsection();" id="text-section-handle">点我展开文字设置项</a></h4>
+				<div id="text-section" style="display: none">
+					网页名: <input type="text" class="iinput" name="wsn" id="websitename" value="吃掉小鹿乃"><br/>
+					主标题: <input type="text" class="iinput" name="wt1" id="WelcomeText1" value="新概念音游"><br/>
+					人物名: <input type="text" class="iinput" name="chr1" id="Character1" value="小鹿乃"><br/>
+					时间结束后文本: <input type="text" class="iinput" name="tmut1" id="TimeupText1" value="时间到了"><br/>
+					分数小于30时文字: <input type="text" class="iinput" name="sc29" id="ScoreComment29" value="多练练"><br/>
+					分数30-50时文字: <input type="text" class="iinput" name="sc49" id="ScoreComment49" value="再加油一下"><br/>
+					分数50-100时文字: <input type="text" class="iinput" name="sc99" id="ScoreComment99" value="继续努力!"><br/>
+					分数100-160时文字: <input type="text" class="iinput" name="sc159" id="ScoreComment159" value="厉害啊!"><br/>
+					分数160-200时文字: <input type="text" class="iinput" name="sc199" id="ScoreComment199" value="大大太强了"><br/>
+					分数大于200时文字: <input type="text" class="iinput" name="scm" id="ScoreCommentMore" value="您还是人吗"><br/>
+				</div>
+				<h4><a href="javascript:imagesection();" id="image-section-handle">点我收起图片设置项</a></h4>
+				<div id="image-section">
+					点击前图片: <input type="text" class="iinput" name="cbi" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
+					点击后图片: <input type="text" class="iinput" name="aci" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
+				</div>
+				<h4><a href="javascript:miscsection();" id="misc-section-handle">点我展开其他设置项</a></h4>
+				<div id="misc-section" style="display: none">
+					游戏时长(单位秒): <input type="text" class="iinput" name="gt" id="GameTime" value="20"><br/>
+				</div>
 				<p>请在文本框中输入指定图片URL，访问<a href="https://imgtu.com/">图床</a>可上传本地图片，获取URL。<br />
 				注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）<br/>
 				图床使用有问题？图片看不见？点<a href="tut.html">这里</a>来查看教程！<br />
 				开始游戏后，将网页链接复制下来并分享给你的朋友，就可以将你的修改成果分享出去了 'w'</p>
 				<input type="submit" value="开始自定义游戏" class="upload">
-				
 			</form>
-			<script type="text/javascript" charset="utf-8">
-				window.setInterval(bodycolor, 40);
-				var trg = document.body;
-				var i = 200;
-				var stLock = 0;
-				function colorChange(_r, _g, _b) {
-					trg.style.backgroundColor = "rgb(" + _r + ", " + _g + ", " + _b + ")";
-				}
-				
-				function bodycolor() {
-					if (i <= 256 & stLock == 0) {
-						i++;
-						colorChange(225, i, 255);
-					}
-					if (i == 256 & stLock == 0) stLock = 1;
-					if (i > 200 & stLock == 1) {
-						i--;
-						colorChange(225, i, 255);
-					}
-					if (i == 201 & stLock == 1) stLock = 0;
-				}
-				
-				function conencode(_ele) {
-					var fuckit_ele = document.getElementById(_ele);  //fk it ok? im done with this bs
-					var fuckit_con = fuckit_ele.value;               //lol
-					fuckit_ele.value = Base64.encode(fuckit_con);
-				}
-				
-				function pageencode() {
-					conencode("websitename");
-					conencode("WelcomeText1");
-					conencode("Character1");
-					conencode("TimeupText1");
-					conencode("ScoreComment29");
-					conencode("ScoreComment49");
-					conencode("ScoreComment99");
-					conencode("ScoreComment159");
-					conencode("ScoreComment199");
-					conencode("ScoreCommentMore");
-					conencode("ClickBefore");
-					conencode("AfterClicking");
-					conencode("GameTime");
-					return true;
-				}
-			</script>
 		</div>
     </body>
 	<footer>
