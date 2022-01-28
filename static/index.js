@@ -41,6 +41,8 @@ function pageencode() {
 	conencode("ClickBefore");
 	conencode("AfterClicking");
 	conencode("GameTime");
+	conencode("TapSound");
+	conencode("ErrorSound");
 	return true;
 }
 //page encoding section END

@@ -21,7 +21,9 @@ var ScoreCommentMore;
 var Character1;
 var ClickBefore;
 var AfterClicking;
-var GameTime=-1;
+var TapSound,_TapSound;
+var ErrorSound,_ErrorSound;
+var EndSound,_EndSound;
 const clickBeforeStyle = document.createElement('style');
 const clickAfterStyle = document.createElement('style');
 document.head.append(clickBeforeStyle);
@@ -61,6 +63,24 @@ function init() {
 	ClickBefore = getQueryStringURL("cbi"); //here the 'i' stands for image
     AfterClicking = getQueryStringURL("aci"); //the same 0A0
 	_Try_GameTime = getQueryString("gt");
+    _TapSound = getQueryStringURL("ts");
+    _ErrorSound = getQueryStringURL("errs");
+    _EndSound = getQueryStringURL("es");
+    if(_TapSound == null){
+        TapSound = "./static/music/tap.mp3"
+    }else{
+        TapSound = _TapSound;
+    }
+    if(_ErrorSound == null){
+        ErrorSound = "./static/music/err.mp3"
+    }else{
+        ErrorSound = _ErrorSound;
+    }
+    if(_EndSound == null){
+        EndSound = "./static/music/end.mp3"
+    }else{
+        EndSound = _EndSound;
+    }
 	if (_Try_GameTime == null) {  //try to fix the bug that the old links don't have the gametime data
 	  GameTime = 20;
     } else {
@@ -174,11 +194,11 @@ function gameInit() {
         id: "err"
     });
     createjs.Sound.registerSound({
-        src: "./static/music/end.mp3",
+        src: "./static/music/err.mp3",
         id: "end"
     });
     createjs.Sound.registerSound({
-        src: "./static/music/tap.mp3",
+        src: "./static/music/err.mp3",
         id: "tap"
     });
     gameRestart();
@@ -251,7 +271,7 @@ function gameTime() {
         GameTimeLayer.innerHTML = '&nbsp;&nbsp;&nbsp;&nbsp;' + TimeupText1;
         gameOver();
         GameLayerBG.className += ' flash';
-        createjs.Sound.play("end");
+        createjs.Sound.play(EndSound);
     } else {
         GameTimeLayer.innerHTML = creatTimeText(_gameTimeNum);
     }
@@ -330,14 +350,14 @@ function gameTapEvent(e) {
         if (!_gameStart) {
             gameStart();
         }
-        createjs.Sound.play("tap");
+        createjs.Sound.play(TapSound);
         tar = document.getElementById(p.id);
         tar.className = tar.className.replace(_ttreg, ' tt$1');
         _gameBBListIndex++;
         _gameScore++;
         gameLayerMoveNextRow();
     } else if (_gameStart && !tar.notEmpty) {
-        createjs.Sound.play("err");
+        createjs.Sound.play(ErrorSound);
         gameOver();
         tar.className += ' bad';
     }
@@ -387,7 +407,7 @@ function showGameScoreLayer() {
             cookie('bast-score', bast, 100);
         }
     }
-    document.getElementById('GameScoreLayer-bast').innerHTML = '最佳&nbsp;&nbsp;' + bast;
+    document.getElementById('GameScoreLayer-bast').innerHTML = `最佳&nbsp;&nbsp;${bast}`;
     l.style.display = 'block';
 }
 
@@ -416,7 +436,7 @@ function shareText(score) {
     var date2 = new Date();
     deviation_time = (date2.getTime() - _date1.getTime())
     if (deviation_time > 23000) {
-        return '倒计时多了' + ((deviation_time / 1000) - 20).toFixed(2) + "s";
+        return `倒计时多了${((deviation_time / 1000) - 20).toFixed(2)}s`;
     }
     SubmitResults();
     if (score <= 29) return ScoreComment29;
