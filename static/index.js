@@ -57,9 +57,9 @@ function alertsharing() {
 	var tempLink;
 	for (var i = 0; i < iinputs.length; i++) {
 		if (i == 0) {
-			tempLink = tempLink + querys[i] + "=" + getElementById(iinputs[i]).value;
+			tempLink = tempLink + querys[i] + "=" + document.getElementById(iinputs[i]).value;
 		} else {
-			tempLink = tempLink + "&" + querys[i] + "=" + getElementById(iinputs[i]).value;
+			tempLink = tempLink + "&" + querys[i] + "=" + document.getElementById(iinputs[i]).value;
 		}
 	}
 	alert("复制下面的链接来分享你的修改成果给好友：\n" + rootLink + tempLink);
