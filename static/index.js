@@ -42,10 +42,29 @@ function pageencode() {
 	conencode("AfterClicking");
 	conencode("GameTime");
 	conencode("TapSound");
+	conencode("EndSound"); //you forgot it lol
 	conencode("ErrorSound");
+	alertsharing(); //alert sharing link
 	return true;
 }
 //page encoding section END
+
+//alert sharing link section START
+var rootLink = "https://lvhuagai.github.io/CustomEatingGame/main.html?"
+const iinputs = new Array("websitename", "WelcomeText1", "Character1", "TimeupText1", "ScoreComment29", "ScoreComment49", "ScoreComment99", "ScoreComment159", "ScoreComment199", "ScoreCommentMore", "ClickBefore", "AfterClicking", "GameTime", "TapSound", "EndSound", "ErrorSound"); //remember to change here pal
+const querys = new Array("wsn", "wt1", "chr1", "tmut1", "sc29", "sc49", "sc99", "sc159", "sc199", "scm", "cbi", "abi", "gt", "ts", "es", "errs");
+function alertsharing() {
+	var tempLink;
+	for (var i = 0; i < iinputs.length; i++) {
+		if (i == 0) {
+			tempLink = tempLink + querys[i] + "=" + getElementById(iinputs[i]).value;
+		} else {
+			tempLink = tempLink + "&" + querys[i] + "=" + getElementById(iinputs[i]).value;
+		}
+	}
+	alert("复制下面的链接来分享你的修改成果给好友：\n" + rootLink + tempLink);
+}
+//alert sharing link section END
 
 //page sections hiding/displaying section START
 function textsection() {
@@ -69,6 +88,18 @@ function imagesection() {
 	} else {
 		imgscele.style.display = "none";
 		imgschnd.innerText = "点我展开图片设置项";
+	}
+}
+
+function soundsection() {
+	var sndscele = document.getElementById("sound-section"); //the sound section
+	var sndschnd = document.getElementById("sound-section-handle"); //the sound section's handle
+	if (sndscele.style.display == "none") {
+		sndscele.style.display = "block";
+		sndschnd.innerText = "点我收起音效设置项";
+	} else {
+		sndscele.style.display = "none";
+		sndschnd.innerText = "点我展开音效设置项";
 	}
 }
 

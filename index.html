@@ -22,7 +22,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 		<style type="text/css">*{margin:0;padding:0; border:0;}</style>
-		<script>alert("通知: 目前本站所有URL参数已修改，之前制作的版本全部失效，请重新生成，对给各位造成的不便表示歉意!")</script>
+		<script>alert("通知: 目前本站所有URL参数已修改，之前制作的版本全部失效，请重新生成，对给各位造成的不便表示歉意!（仅针对于在2022-1-28日 23点前生成的页面）")</script>
     </head>
     <body>
 		<div class="main">
@@ -48,18 +48,22 @@
 					点击前图片: <input type="text" class="iinput" name="cbi" id="ClickBefore" value="static/image/ClickBefore.png"><br/>
 					点击后图片: <input type="text" class="iinput" name="aci" id="AfterClicking" value="static/image/AfterClicking.png"><br/>
 				</div>
-				<h4><a href="javascript:miscsection();" id="misc-section-handle">点我展开其他设置项</a></h4>
-				<div id="misc-section" style="display: none">
-					游戏时长(单位秒): <input type="text" class="iinput" name="gt" id="GameTime" value="20"><br/>
+				<h4><a href="javascript:soundsection();" id="sound-section-handle">点我收起音效设置项</a></h4>
+				<div id="sound-section">
 					点击正确时音效: <input type="text" class="iinput" name="ts" id="TapSound" value="./static/music/tap.mp3"><br/>
 					点击错误时音效: <input type="text" class="iinput" name="errs" id="ErrorSound" value="./static/music/err.mp3"><br/>
 					游戏结束时音效: <input type="text" class="iinput" name="es" id="EndSound" value="./static/music/end.mp3"><br/>
+				</div>
+				<h4><a href="javascript:miscsection();" id="misc-section-handle">点我展开其他设置项</a></h4>
+				<div id="misc-section" style="display: none">
+					游戏时长(单位秒): <input type="text" class="iinput" name="gt" id="GameTime" value="20"><br/>
 				</div>
 				<input type="submit" value="开始自定义游戏" class="upload">
 			</form>
 			<br/><br/>
 			<h5 style="text-align:center">修改图片/音效时请在指定文本框中输入图片/音效URL，访问<a href="https://imgtu.com/">图床</a>可上传本地图片，获取图片URL。<br />
-				注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）<br/>
+				关于音效URL的获取我们还在想办法解决，大家有一定动手能力的可以去<a href="https://anonfiles.com">anonfiles</a>先上传一波。<br />
+				注意: 图片链接请务必要填写，若不填写则为全空白，不过你也可以试试盲打（）<br />
 				图床使用有问题？图片看不见？点<a href="tut.html">这里</a>来查看教程!<br />
 				开始游戏后，将网页链接复制下来并分享给你的朋友，就可以将你的修改成果分享出去了 'w'</h5>
 		</div>

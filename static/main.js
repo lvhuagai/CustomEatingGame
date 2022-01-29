@@ -128,7 +128,8 @@ function init() {
     }`;
 	document.getElementById("welcometext1").innerHTML = WelcomeText1;
 	document.getElementById("title2").innerHTML = "从最底下" + Character1 + "开始";
-	alert("复制下面的链接把你的修改结果分享给好友！\n" + window.location.href);
+	document.getElementById("title3").innerHTML = "看看你" + GameTime + "秒内能吃多少";
+	alert("如果本页面出现了无法游玩的情况，请联系那个分享给你的人，让ta重新进行生成，非常抱歉给大家带来的不便！");
     btn.onclick = function () {
         closeWelcomeLayer();
     }
