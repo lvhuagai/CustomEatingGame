@@ -54,7 +54,7 @@ var rootLink = "https://lvhuagai.github.io/CustomEatingGame/main.html?"
 const iinputs = new Array("websitename", "WelcomeText1", "Character1", "TimeupText1", "ScoreComment29", "ScoreComment49", "ScoreComment99", "ScoreComment159", "ScoreComment199", "ScoreCommentMore", "ClickBefore", "AfterClicking", "GameTime", "TapSound", "EndSound", "ErrorSound"); //remember to change here pal
 const querys = new Array("wsn", "wt1", "chr1", "tmut1", "sc29", "sc49", "sc99", "sc159", "sc199", "scm", "cbi", "abi", "gt", "ts", "es", "errs");
 function alertsharing() {
-	var tempLink;
+	var tempLink = "";
 	for (var i = 0; i < iinputs.length; i++) {
 		if (i == 0) {
 			tempLink = tempLink + querys[i] + "=" + document.getElementById(iinputs[i]).value;
