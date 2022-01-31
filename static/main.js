@@ -52,12 +52,12 @@ function getQueryStringURL(name) {
 function init() {
     showWelcomeLayer();
 	TimeupText1 = getQueryString("tmut1"); //i prefer using 'tmut1' instead of 'tut1' for no reasons :p
-	ScoreComment29 = getQueryString("sc29");
-	ScoreComment49 = getQueryString("sc49");
-	ScoreComment99 = getQueryString("sc99");
-	ScoreComment159 = getQueryString("sc159");
-	ScoreComment199 = getQueryString("sc199");
-	ScoreCommentMore = getQueryString("scm");
+	ScoreComment29 = getQueryString("sc29").split(";"); //for these score comments, we need to make it random-able ;w;
+	ScoreComment49 = getQueryString("sc49").split(";");
+	ScoreComment99 = getQueryString("sc99").split(";");
+	ScoreComment159 = getQueryString("sc159").split(";");
+	ScoreComment199 = getQueryString("sc199").split(";");
+	ScoreCommentMore = getQueryString("scm").split(";");
 	WelcomeText1 = getQueryString("wt1");
 	Character1 = getQueryString("chr1");
 	ClickBefore = getQueryStringURL("cbi"); //here the 'i' stands for image
@@ -188,7 +188,8 @@ var _gameBBList = [],
     _gameOver = false,
     _gameStart = false,
     _gameTime, _gameTimeNum, _gameScore;
-//Sound settings, I'll add this feature in next version :p
+	
+//you've already done it, pal! good job 'w'
 function gameInit() {
     createjs.Sound.registerSound({
         src: "./static/music/err.mp3",
@@ -433,6 +434,25 @@ function getRnd(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
+//to generate random numbers [minNum, maxNum]
+function randomNum(minNum, maxNum) { 
+    switch(arguments.length){ 
+        case 1: 
+            return parseInt(Math.random() * minNum + 1, 10); 
+        break; 
+        case 2: 
+            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10); 
+        break; 
+            default: 
+                return 0; 
+            break; 
+    } 
+}
+
+function randomComment(_ary) {
+	return _ary[randomNum(0, _ary.length - 1)];
+}
+
 function shareText(score) {
     var date2 = new Date();
     deviation_time = (date2.getTime() - _date1.getTime())
@@ -440,12 +460,12 @@ function shareText(score) {
         return `倒计时多了${((deviation_time / 1000) - 20).toFixed(2)}s`;
     }
     SubmitResults();
-    if (score <= 29) return ScoreComment29;
-	if (score <= 49) return ScoreComment49;
-    if (score <= 99) return ScoreComment99;
-    if (score <= 159) return ScoreComment159;
-    if (score <= 189) return ScoreComment199;
-    return ScoreCommentMore;
+    if (score <= 29) return randomComment(ScoreComment29);
+	if (score <= 49) return randomComment(ScoreComment49);
+    if (score <= 99) return randomComment(ScoreComment99);
+    if (score <= 159) return randomComment(ScoreComment159);
+    if (score <= 189) return randomComment(ScoreComment199);
+    return randomComment(ScoreCommentMore);
 }
 
 function toStr(obj) {
