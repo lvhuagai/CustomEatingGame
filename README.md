@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://lvhuagai.github.io/CustomEatingGame/index.html"><img src="https://s4.ax1x.com/2022/01/26/7LJ1it.png" width="100" height="100" alt="CustomEatingGame"></a>
+  <a href="https://lvhuagai.github.io/CustomEatingGame/index.html"><img src="./static/image/favicon.png" width="100" height="100" alt="CustomEatingGame"></a>
 </p>
 <div align="center">
 
